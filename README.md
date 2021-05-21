@@ -8,7 +8,7 @@ Use the notifier to get the notification based on district, age slot, and specfi
 2.  clone the repository.
 3.  open terminal in that folder and run pip install -r requirements.txt
 4.  open the searchData.json and fill accordingly
-5.  It's done .. just click the runner.bat to start it. you can close the terminal that will open after clicking it.
+5.  It's done .. just click the runner.bat to start it and it will start the program in the background. You can close the terminal that will open after clicking it.
 6.  Use the stopper.bat to exit the program. So, click it to stop it.
 
 # Input fields in searcData.json
