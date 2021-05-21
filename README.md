@@ -1,6 +1,6 @@
 # Cowin-Notifier
 
-Use the notifier to get the notification based on district, age slot, and specfic locality.
+Use the notifier to get the notification based on district, age slot, and specfic locality. It will also create a txt file for all available slots in the desktop folder.
 
 # Steps for using it.
 
