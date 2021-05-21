@@ -63,7 +63,7 @@ else:
             centers=results.json()["centers"]
             for i in centers:
                 for k in i["sessions"]:
-                    if  k["available_capacity"]>0 and data["specificLocality"].lower() in i["address"].lower():
+                    if  k["available_capacity"]>1 and data["specificLocality"].lower() in i["address"].lower():
                         if (data["18plus"]=="yes" or data["18plus"]=="true") and k["min_age_limit"]==18:
                             
                             msg18+=f"{i['name']}, Available-{k['available_capacity']}\n"
