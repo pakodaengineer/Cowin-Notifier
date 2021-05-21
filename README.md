@@ -2,7 +2,7 @@
  Use the notifier to get the notification based on district, age slot, and specfic locality.
  
  
- #use the following steps for using it.
+ # use the following steps for using it.
  
  1. Install python in your system.
  2. clone the repository.
@@ -12,10 +12,15 @@
  Use the taskmanger to exit the program. End the pythonw.exe for closing it
  
  # Input your data in searcData.json
+ 
  state - (needed) enter your state name
+ 
  district - (needed) enter your district name
+ 
  specificLocality -(optional) enter any specific locality in city
+ 
  18plus - (optional) use "yes" or "true" for searching the data only for 18 + slots
+ 
  checksInEveryGivenSeconds - (optional) enter the time window in which data is refreshed . Default -600 seconds
  
  You can change the notification audio by replacing in public folder. Rename the new sound file like "sound.mp3" and place it inside the public folder.
