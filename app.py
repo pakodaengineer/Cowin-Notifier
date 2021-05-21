@@ -65,10 +65,10 @@ else:
                 if  k["available_capacity"]>0 and data["specificLocality"].lower() in i["address"].lower():
                     if (data["18plus"]=="yes" or data["18plus"]=="true") and k["min_age_limit"]==18:
                         
-                        msg18+=f"{i['name']} {k['available_capacity']}\n"
+                        msg18+=f"{i['name']}, Available-{k['available_capacity']}\n"
                             
                     elif k["min_age_limit"]==45:
-                        msgSpec+=f"{i['name']} {k['available_capacity']}\n"
+                        msgSpec+=f"{i['name']}, Available-{k['available_capacity']}\n"
                      
 
         # notifications  
