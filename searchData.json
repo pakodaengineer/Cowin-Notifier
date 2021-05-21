@@ -1,7 +1,7 @@
 {
     "state": "madhya pradesh",
     "district": "bhopal",
-    "specificLocality": "",
-    "18plus": "",
-    "checksInEveryGivenSeconds": ""
+    "specificLocality": "bairagarh",
+    "18plus": "yes",
+    "checksInEveryGivenSeconds": "300"
 }

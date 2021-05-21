@@ -57,38 +57,44 @@ else:
         msgSpec=""
 
         # getting data from cowin and using it
-        results=requests.get(f"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={district_id}&date={now}",
-        headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'})
-        centers=results.json()["centers"]
-        for i in centers:
-            for k in i["sessions"]:
-                if  k["available_capacity"]>0 and data["specificLocality"].lower() in i["address"].lower():
-                    if (data["18plus"]=="yes" or data["18plus"]=="true") and k["min_age_limit"]==18:
-                        
-                        msg18+=f"{i['name']}, Available-{k['available_capacity']}\n"
+        try:
+            results=requests.get(f"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={district_id}&date={now}",
+            headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'})
+            centers=results.json()["centers"]
+            for i in centers:
+                for k in i["sessions"]:
+                    if  k["available_capacity"]>0 and data["specificLocality"].lower() in i["address"].lower():
+                        if (data["18plus"]=="yes" or data["18plus"]=="true") and k["min_age_limit"]==18:
                             
-                    elif k["min_age_limit"]==45:
-                        msgSpec+=f"{i['name']}, Available-{k['available_capacity']}\n"
-                     
+                            msg18+=f"{i['name']}, Available-{k['available_capacity']}\n"
+                                
+                        elif k["min_age_limit"]==45:
+                            msgSpec+=f"{i['name']}, Available-{k['available_capacity']}\n"
+                        
 
-        # notifications  
-        if (data["18plus"]=="yes" or data["18plus"]=="true"):
-            if len(msg18)>10:
-                notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 18 +', f"Visit Cowin website. Avaliability at {msg18[:150]}" )
+            # notifications  
+            if (data["18plus"]=="yes" or data["18plus"]=="true"):
+                if len(msg18)>10:
+                    notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 18 +', f"Visit Cowin website. Avaliability at {msg18[:150]}" )
+                    print("-"*50)
+                    print(f"AVAILABILITY AT \n"+msg18)
+                    with open(desktop+"/18plus_slots.txt", "w") as centerFile:
+                        centerFile.write(msg18)
+                    
+
+
+
+            elif len(msgSpec)>10:
+                notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 45 +', f"Visit Cowin website. Avaliability at {msgSpec[:150]}")
                 print("-"*50)
-                print(f"AVAILABILITY AT \n"+msg18)
-                with open(desktop+"/18plus_slots.txt", "w") as centerFile:
-                    centerFile.write(msg18)
-                
+                print(f"AVAILABILITY AT \n"+msgSpec)
+                with open(desktop+"/45plus_slots.txt", "w") as centerFile:
+                        centerFile.write(msgSpec)
 
+            # making the loop sleep for sometime
+            time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 600)
 
-
-        elif len(msgSpec)>10:
-            notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 45 +', f"Visit Cowin website. Avaliability at {msgSpec[:150]}")
-            print("-"*50)
-            print(f"AVAILABILITY AT \n"+msgSpec)
-            with open(desktop+"/45plus_slots.txt", "w") as centerFile:
-                    centerFile.write(msgSpec)
-
-        # making the loop sleep for sometime
-        time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 600)
+        except:
+            notifyMe("Not connected to Internet", "Please make sure that you are connected to Internet and then start the runner file again")
+            quit()
+            
