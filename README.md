@@ -11,7 +11,7 @@
  5. It's done .. just click the runner.bat to start it.
  Use the taskmanger to exit the program. End the pythonw.exe for closing it
  
- # Input your data in searcData.json
+ # Input fields in searcData.json
  
  state - (needed) enter your state name
  
@@ -23,7 +23,7 @@
  
  checksInEveryGivenSeconds - (optional) enter the time window in which data is refreshed . Default -600 seconds
  
- You can change the notification audio by replacing in public folder. Rename the new sound file like "sound.mp3" and place it inside the public folder.
+ Note - You can change the notification audio by replacing in public folder. Rename the new sound file like "sound.mp3" and place it inside the public folder.
  
- #ScreenShot
+ # ScreenShot
  ![noti](https://user-images.githubusercontent.com/64629430/119117272-b6115b80-ba46-11eb-84a2-90b57baf2920.JPG)
