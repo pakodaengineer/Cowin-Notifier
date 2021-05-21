@@ -92,7 +92,7 @@ else:
                         centerFile.write(msgSpec)
 
             # making the loop sleep for sometime
-            time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 600)
+            time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 60)
 
         except:
             notifyMe("Not connected to Internet", "Please make sure that you are connected to Internet and then start the runner file again")

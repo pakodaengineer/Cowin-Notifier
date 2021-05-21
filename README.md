@@ -13,11 +13,11 @@ Use the notifier to get the notification based on district, age slot, and specfi
 
 # Input fields in searchData.json
 
-* state - (needed) enter your state name
-* district - (needed) enter your district name
-* specificLocality -(optional) enter any specific locality in city
-* 18plus - (optional) use "yes" or "true" for searching the data only for 18 + slots
-* checksInEveryGivenSeconds - (optional) enter the time window in which data is refreshed . Default 600 seconds
+- state - (needed) enter your state name
+- district - (needed) enter your district name
+- specificLocality -(optional) enter any specific locality in city
+- 18plus - (optional) use "yes" or "true" for searching the data only for 18 + slots
+- checksInEveryGivenSeconds - (optional) enter the time window in which data is refreshed . Default 60 seconds
 
 Note - You can change the notification audio by replacing in public folder. Rename the new sound file like "sound.mp3" and place it inside the public folder.
 
