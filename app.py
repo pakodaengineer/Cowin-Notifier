@@ -60,7 +60,7 @@ else:
                         
                         msg18+=f"{i['name']} {k['available_capacity']}\n"
                             
-                    else:
+                    elif k["min_age_limit"]==45:
                         msgSpec+=f"{i['name']} {k['available_capacity']}\n"
                      
 
