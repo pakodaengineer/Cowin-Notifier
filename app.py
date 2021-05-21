@@ -36,6 +36,13 @@ for i in tmpData:
         break
         del tmpData
 
+#getting path of desktop for making the centers availability file
+try:
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
+except:
+    desktop="./"
+
+
 
 #checking for invalid input
 if district_id==None:
@@ -70,11 +77,18 @@ else:
                 notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 18 +', f"Visit Cowin website. Avaliability at {msg18[:150]}" )
                 print("-"*50)
                 print(f"AVAILABILITY AT \n"+msg18)
+                with open(desktop+"/18plus_slots.txt", "w") as centerFile:
+                    centerFile.write(msg18)
+                
+
+
 
         elif len(msgSpec)>10:
             notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 45 +', f"Visit Cowin website. Avaliability at {msgSpec[:150]}")
             print("-"*50)
             print(f"AVAILABILITY AT \n"+msgSpec)
+            with open(desktop+"/45plus_slots.txt", "w") as centerFile:
+                    centerFile.write(msgSpec)
 
         # making the loop sleep for sometime
         time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 600)
