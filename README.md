@@ -2,7 +2,7 @@
 
 Use the notifier to get the notification based on district, age slot, and specfic locality.
 
-# use the following steps for using it.
+# Steps for using it.
 
 1.  Install python in your system.
 2.  clone the repository.
