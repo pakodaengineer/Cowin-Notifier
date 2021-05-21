@@ -65,10 +65,11 @@ else:
                      
 
         # notifications  
-        if len(msg18)>10:
-            notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 18 +', f"Visit Cowin website. Avaliability at {msg18[:150]}" )
-            print("-"*50)
-            print(f"AVAILABILITY AT \n"+msg18)
+        if (data["18plus"]=="yes" or data["18plus"]=="true"):
+            if len(msg18)>10:
+                notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 18 +', f"Visit Cowin website. Avaliability at {msg18[:150]}" )
+                print("-"*50)
+                print(f"AVAILABILITY AT \n"+msg18)
 
         elif len(msgSpec)>10:
             notifyMe(f'Vaccination slots are available in {data["specificLocality"]} {data["district"]} for 45 +', f"Visit Cowin website. Avaliability at {msgSpec[:150]}")
