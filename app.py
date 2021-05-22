@@ -95,6 +95,6 @@ else:
             time.sleep(int(data["checksInEveryGivenSeconds"]) if len(data["checksInEveryGivenSeconds"])>0 else 60)
 
         except:
-            notifyMe("Not connected to Internet", "Please make sure that you are connected to Internet and then start the runner file again")
-            quit()
+            notifyMe("Not connected to Internet", "Please make sure that you are connected to Internet")
+            time.sleep(600)
             
